@@ -7,7 +7,7 @@
   @yield('title')
 
   <p>アカウント作成</p>
-  <form action="" method="post">
+  <form action="/hello/account" method="post">
     {{ csrf_field() }}
     @if (count($errors) > 0)
     <p>入力に問題があります。再入力してください。</p>

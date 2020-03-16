@@ -24,16 +24,19 @@ class HelloController extends Controller
           return view('hello.home');
     }
   }
+  public function user(Request $request)
+  {
+    return view('hello.acocount')
+  }
   public function make(Repuest $repuest)
   {
-    $validate_rule =  [
-             'name' => 'string',
-             'mail' => 'email',
-             'pass' => 'between: 8,16',
-             'bathday' => 'email',
-         ];
-         $this->validate($request, $validate_rule);
-         return view('hello.ok');
+    $this->validate($request, uses::$rules);
+    $uses = new uses;
+    $use->name = $request->name;
+    $use->mail = $request->mail;
+    $use->bathday = $request ->bathday;
+    $use->save();
+    return view('hello.ok');
   }
   public function move(Repuest $repuest)
   {

@@ -25,11 +25,27 @@
   @section('form')
   <form action="" method="post">
     {{ csrf_field() }}
+    @if ($errors->has('title'))
+      <tr><th>ERROR</th><td>{{$errors->fist('title')}}</td></tr>
+    @endif
+    <tr><th>: </th><td><input type="text" name="title"
+        value="{{old('title')}}"></td></tr>
     <textarea name="body" rows="5" cols="50">
-    <tr><th>身長: </th><td><input type="text" name="tall"></td></tr>
-    <tr><th>体重: </th><td><input type="text" name="wate"></td></tr>
-    <tr><th>写真: </th><td><input type="file" name="photo"></td></tr>
-    <tr><th>日付: </th><td><input type="date" name="day"></td></tr>
+    @if ($errors->has('tall'))
+      <tr><th>ERROR</th><td>{{$errors->fist('tall')}}</td></tr>
+    @endif
+      <tr><th>: </th><td><input type="text" name="tall"
+          value="{{old('tall')}}"></td></tr>
+    @if ($errors->has('weight'))
+      <tr><th>ERROR</th><td>{{$errors->fist('weight')}}</td></tr>
+    @endif
+      <tr><th>: </th><td><input type="text" name="weight"
+          value="{{old('weight')}}"></td></tr>
+    @if ($errors->has('day'))
+      <tr><th>ERROR</th><td>{{$errors->fist('day')}}</td></tr>
+    @endif
+      <tr><th>: </th><td><input type="text" name="day"
+          value="{{old('day')}}"></td></tr>
     <input type="submit" name="" value="投稿">
   </form>
 </body>

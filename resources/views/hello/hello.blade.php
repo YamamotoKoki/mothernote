@@ -20,7 +20,7 @@
         <tr><th>ERROR</th><td>{{$errors->fist('mail')}}</td></tr>
       @endif
       <tr><th>mail: </th><td><input type="text" name="mail"
-          value="{{old('name)}}"></td></tr>
+          value="{{old('name')}}"></td></tr>
       @if ($errors->has('pass'))
         <tr><th>ERROR</th><td>{{$errors->fist('pass')}}</td></tr>
       @endif
